@@ -8,7 +8,7 @@ st.set_page_config(page_title="Pharma Document Generator", layout="wide")
 # Restore Google site verification
 st.markdown(
     """<meta name="google-site-verification" content="ICQemepVIXsFAqgoCeE2gZIkrqoGJZ6SQ4-sL18wCvU" />""",
-  
+    unsafe_allow_html=True
 )
 
 # Rest of the code remains the same as in the previous artifact
