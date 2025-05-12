@@ -498,4 +498,4 @@ DOCUMENT_TYPES = {
     },
     "QMS": {
         "Deviation Report": generate_deviation,
-        "Risk Assessment": generate_risk
+        "Risk Assessment": generate_risk_
