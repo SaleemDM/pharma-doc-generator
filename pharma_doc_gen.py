@@ -1,9 +1,11 @@
 import streamlit as st
 import datetime
 from enum import Enum
+
 st.markdown(
-    """<meta name="google-site-verification" content="googlea7a6900fa5d8b9a3.html" />""", 
+    """<meta name="google-site-verification" content="googlea7a6900fa5d8b9a3.html" />""",
     unsafe_allow_html=True
+)
 
 class SystemCategory(Enum):
     HPLC = "HPLC System"
@@ -19,7 +21,7 @@ class SystemCategory(Enum):
 SYSTEM_TEMPLATES = {
     SystemCategory.HPLC: {
         "description": "High Performance Liquid Chromatography system used for drug substance and product analysis",
-        "regulations": "21 CFR Part 11, EU Annex 11, USP <1058>",
+        "regulations": "21 CFR Part 11, EU Annex 11, USP ",
         "gamp_category": "4",
         "risk_method": "FMEA",
         "interfaces": "LIMS, CDS, Electronic Notebook",
@@ -57,7 +59,7 @@ Version: 1.0
 Effective Date: {datetime.datetime.now().strftime('%Y-%m-%d')}
 
 1. PURPOSE
-This Validation Master Plan (VMP) establishes the framework for qualifying and validating the {system_name} 
+This Validation Master Plan (VMP) establishes the framework for qualifying and validating the {system_name}
 to ensure it meets intended use requirements and complies with {template['regulations']}.
 
 2. SYSTEM DESCRIPTION
@@ -97,9 +99,9 @@ All changes will be managed through the Change Control Procedure SOP-XXX.
 All personnel must complete training on relevant SOPs prior to validation activities.
 
 8. APPROVAL
-Prepared By: ________________________   Date: _______________
-Reviewed By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Prepared By: ________________________    Date: _______________
+Reviewed By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_urs(system_name, system_category):
@@ -150,9 +152,9 @@ The system shall comply with:
 The system shall be validated according to {template['val_approach']}.
 
 7. APPROVAL
-Prepared By: ________________________   Date: _______________
-Reviewed By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Prepared By: ________________________    Date: _______________
+Reviewed By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_frs(system_name, system_category):
@@ -200,9 +202,9 @@ Version: 1.0
 - API specifications
 
 5. APPROVAL
-Prepared By: ________________________   Date: _______________
-Reviewed By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Prepared By: ________________________    Date: _______________
+Reviewed By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_dq(system_name, system_category):
@@ -229,9 +231,9 @@ Version: 1.0
 - [Table mapping design features to URS requirements]
 
 3. APPROVAL
-Verified By: ________________________   Date: _______________
-Reviewed By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Verified By: ________________________    Date: _______________
+Reviewed By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_iq(system_name, system_category):
@@ -261,14 +263,14 @@ Version: 1.0
 3. TEST RESULTS
 Test ID | Description | Acceptance Criteria | Result | Remarks
 --------|-------------|---------------------|--------|--------
-IQ-001 | Hardware Install | As per specifications | Pass/Fail | 
+IQ-001 | Hardware Install | As per specifications | Pass/Fail |
 IQ-002 | Software Install | Correct version | Pass/Fail |
 IQ-003 | Documentation | Complete set | Pass/Fail |
 
 4. APPROVAL
-Executed By: ________________________   Date: _______________
-Reviewed By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Executed By: ________________________    Date: _______________
+Reviewed By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_oq(system_name, system_category):
@@ -297,9 +299,9 @@ Test ID | Description | Expected Result | Actual Result | Pass/Fail
 OQ-001 | [Test case] | [Expected] | [Actual] | Pass/Fail
 
 5. APPROVAL
-Executed By: ________________________   Date: _______________
-Reviewed By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Executed By: ________________________    Date: _______________
+Reviewed By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_pq(system_name, system_category):
@@ -327,9 +329,9 @@ Test ID | Metric | Expected | Actual | Pass/Fail
 PQ-001 | [Metric] | [Value] | [Value] | Pass/Fail
 
 4. APPROVAL
-Executed By: ________________________   Date: _______________
-Reviewed By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Executed By: ________________________    Date: _______________
+Reviewed By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_rtm(system_name, system_category):
@@ -343,7 +345,7 @@ Requirement ID | URS Reference | FRS Reference | Test Case | Status
 --------------|---------------|---------------|-----------|-------
 [ID] | [URS Section] | [FRS Section] | [TC-XXX] | Verified
 
-Approved By: ________________________   Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_val_summary(system_name, system_category):
@@ -368,7 +370,7 @@ All acceptance criteria were met with no critical deviations.
 3. CONCLUSION
 The {system_name} has been successfully validated for its intended use.
 
-Approved By: ________________________   Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 # QMS DOCUMENT GENERATORS
@@ -393,7 +395,7 @@ System: {system_name} ({system_category.value})
 5. PREVENTIVE ACTIONS
 [Long-term preventive actions to avoid recurrence]
 
-Approved By: ________________________   Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_risk_assessment(system_name, system_category):
@@ -414,7 +416,7 @@ Risk ID | Hazard | Severity | Likelihood | Detectability | RPN | Mitigation
 3. CONCLUSION
 Residual risk after mitigation is [Acceptable/Unacceptable]
 
-Approved By: ________________________   Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_capa(system_name, system_category):
@@ -438,7 +440,7 @@ Related System: {system_name} ({system_category.value})
 5. EFFECTIVENESS CHECK
 [Plan for verifying action effectiveness]
 
-Approved By: ________________________   Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_change_control(system_name, system_category):
@@ -457,8 +459,8 @@ Affected System: {system_name} ({system_category.value})
 [Required validation activities for this change]
 
 4. APPROVALS
-Requested By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Requested By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_fmea(system_name, system_category):
@@ -479,7 +481,7 @@ ID | Failure Mode | Effects | S | Causes | O | Controls | D | RPN | Action
 3. RISK CONTROL
 All RPNs above [threshold] require mitigation actions.
 
-Approved By: ________________________   Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 DOCUMENT_TYPES = {
@@ -504,40 +506,4 @@ DOCUMENT_TYPES = {
 }
 
 def main():
-    st.set_page_config(page_title="Pharma Document Generator", layout="wide")
-    st.title("🏭 Pharmaceutical Document Generator")
-    
-    # System information
-    col1, col2 = st.columns(2)
-    with col1:
-        system_name = st.text_input("System Name", "HPLC-01")
-    with col2:
-        system_category = st.selectbox(
-            "System Category",
-            options=list(SystemCategory),
-            format_func=lambda x: x.value
-        )
-    
-    # Document category selection
-    doc_category = st.radio("Document Category", ["Validation", "QMS"], horizontal=True)
-    
-    # Document type selection
-    doc_type = st.selectbox("Select Document Type", list(DOCUMENT_TYPES[doc_category].keys()))
-    
-    if st.button("Generate Document"):
-        generator = DOCUMENT_TYPES[doc_category][doc_type]
-        document = generator(system_name, system_category)
-        
-        st.subheader(f"Generated {doc_type}")
-        with st.expander("View Document", expanded=True):
-            st.text(document)
-        
-        st.download_button(
-            label="📄 Download Document",
-            data=document,
-            file_name=f"{system_name.replace(' ', '_')}_{doc_type.replace(' ', '_')}.txt",
-            mime="text/plain"
-        )
-
-if __name__ == "__main__":
-    main()
+    st
