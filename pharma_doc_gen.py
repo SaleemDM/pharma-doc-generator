@@ -5,6 +5,21 @@ from enum import Enum
 # Set page config as the first Streamlit command
 st.set_page_config(page_title="Pharma Document Generator", layout="wide")
 
+# Google Analytics tracking code
+st.markdown(
+    """
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJQNLLZRTS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-PJQNLLZRTS');
+    </script>
+    """,
+    unsafe_allow_html=True
+)
+
 # Restore Google site verification
 st.markdown(
     """<meta name="google-site-verification" content="ICQemepVIXsFAqgoCeE2gZIkrqoGJZ6SQ4-sL18wCvU" />""",
@@ -67,7 +82,7 @@ Version: 1.0
 Effective Date: {datetime.datetime.now().strftime('%Y-%m-%d')}
 
 1. PURPOSE
-This Validation Master Plan (VMP) establishes the framework for qualifying and validating the {system_name} 
+This Validation Master Plan (VMP) establishes the framework for qualifying and validating the {system_name}
 to ensure it meets intended use requirements and complies with {template['regulations']}.
 
 2. SYSTEM DESCRIPTION
@@ -107,9 +122,9 @@ All changes will be managed through the Change Control Procedure SOP-XXX.
 All personnel must complete training on relevant SOPs prior to validation activities.
 
 8. APPROVAL
-Prepared By: ________________________   Date: _______________
-Reviewed By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Prepared By: ________________________    Date: _______________
+Reviewed By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_urs(system_name, system_category):
@@ -161,9 +176,9 @@ The system shall comply with:
 The system shall be validated according to {template['val_approach']}.
 
 7. APPROVAL
-Prepared By: ________________________   Date: _______________
-Reviewed By: ________________________   Date: _______________
-Approved By: ________________________   Date: _______________
+Prepared By: ________________________    Date: _______________
+Reviewed By: ________________________    Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_deviation(system_name, system_category):
@@ -188,7 +203,7 @@ System: {system_name} ({system_category.value})
 5. PREVENTIVE ACTIONS
 [Long-term preventive actions to avoid recurrence]
 
-Approved By: ________________________   Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 def generate_risk_assessment(system_name, system_category):
@@ -210,7 +225,7 @@ Risk ID | Hazard | Severity | Likelihood | Detectability | RPN | Mitigation
 3. CONCLUSION
 Residual risk after mitigation is [Acceptable/Unacceptable]
 
-Approved By: ________________________   Date: _______________
+Approved By: ________________________    Date: _______________
 """
 
 # Add other document generation functions here (frs, dq, iq, oq, pq, etc.)
@@ -234,7 +249,7 @@ def generate_merged_documents(system_name, system_category):
     """
     merged_content = f"MERGED DOCUMENTS FOR {system_name} ({system_category.value})\n"
     merged_content += "="*50 + "\n\n"
-    
+
     # Generate Validation Documents
     merged_content += "VALIDATION DOCUMENTS\n"
     merged_content += "-"*20 + "\n"
@@ -243,7 +258,7 @@ def generate_merged_documents(system_name, system_category):
         merged_content += "="*len(doc_type) + "\n"
         merged_content += generator(system_name, system_category)
         merged_content += "\n\n"
-    
+
     # Generate QMS Documents
     merged_content += "\nQMS DOCUMENTS\n"
     merged_content += "-"*15 + "\n"
@@ -252,12 +267,12 @@ def generate_merged_documents(system_name, system_category):
         merged_content += "="*len(doc_type) + "\n"
         merged_content += generator(system_name, system_category)
         merged_content += "\n\n"
-    
+
     return merged_content
 
 def main():
     st.title("🏭 Pharmaceutical Document Generator")
-    
+
     # System information
     col1, col2 = st.columns(2)
     with col1:
@@ -268,10 +283,10 @@ def main():
             options=list(SystemCategory),
             format_func=lambda x: x.value
         )
-    
+
     # Document category selection
     doc_category = st.radio("Document Category", ["Validation", "QMS", "Merged"], horizontal=True)
-    
+
     # Document type selection
     if doc_category == "Merged":
         doc_types = ["All Documents"]
@@ -279,7 +294,7 @@ def main():
     else:
         doc_types = list(DOCUMENT_TYPES[doc_category].keys())
         doc_type = st.selectbox("Select Document Type", doc_types)
-    
+
     if st.button("Generate Document"):
         if doc_category == "Merged":
             # Generate merged document
@@ -290,11 +305,11 @@ def main():
             generator = DOCUMENT_TYPES[doc_category][doc_type]
             document = generator(system_name, system_category)
             document_title = f"{system_name}_{doc_type.replace(' ', '_')}"
-        
+
         st.subheader(f"Generated {doc_type}")
         with st.expander("View Document", expanded=True):
             st.text(document)
-        
+
         st.download_button(
             label="📄 Download Document",
             data=document,
