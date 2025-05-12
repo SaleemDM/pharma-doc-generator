@@ -498,12 +498,3 @@ DOCUMENT_TYPES = {
     },
     "QMS": {
         "Deviation Report": generate_deviation,
-        "Risk Assessment": generate_risk_assessment,
-        "CAPA Report": generate_capa,
-        "Change Control": generate_change_control,
-        "FMEA Analysis": generate_fmea
-    }
-}
-
-def main():
-    st
