@@ -1,3 +1,4 @@
+st.markdown("""<meta name="google-site-verification" content="googlea7a6900fa5d8b9a3.html" />""", unsafe_allow_html=True)
 import streamlit as st
 import datetime
 from enum import Enum
