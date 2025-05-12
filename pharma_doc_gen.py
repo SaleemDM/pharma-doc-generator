@@ -5,6 +5,15 @@ from enum import Enum
 # Set page config as the first Streamlit command
 st.set_page_config(page_title="Pharma Document Generator", layout="wide")
 
+# Restore Google site verification
+st.markdown(
+    """<meta name="google-site-verification" content="googlea7a6900fa5d8b9a3.html" />""", 
+    unsafe_allow_html=True
+)
+
+# Rest of the code remains the same as in the previous artifact
+# (All the previous code for SystemCategory, document generation, etc.)
+
 class SystemCategory(Enum):
     HPLC = "HPLC System"
     LIMS = "Laboratory Information Management System"
