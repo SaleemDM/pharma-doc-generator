@@ -503,7 +503,12 @@ DOCUMENT_TYPES = {
 def main():
     st.set_page_config(page_title="Pharma Document Generator", layout="wide")
     st.title("🏭 Pharmaceutical Document Generator")
-    
+    (
+        """
+        <meta name="google-site-verification" content="IWzO4ekPofXLKG9Wp187Z2TDvXJStw_NDBZXizqk-Hw" />
+        """,
+        height=0,  # Set height to 0 to prevent it from taking visible space
+    )
     # System information
     col1, col2 = st.columns(2)
     with col1:
