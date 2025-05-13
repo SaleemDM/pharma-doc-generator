@@ -4,13 +4,7 @@ from enum import Enum
 st.set_page_config(
     page_title="Pharma Document Generator", 
     layout="wide",
-    page_icon="🏭",
-    meta_tags=[
-        {
-            "name": "google-site-verification",
-            "content": "IWzO4ekPofXLKG9Wp187Z2TDvXJStw_NDBZXizqk-Hw"
-        }
-    ]
+    page_icon="🏭"
 )
 class SystemCategory(Enum):
     HPLC = "HPLC System"
