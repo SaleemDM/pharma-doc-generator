@@ -511,7 +511,6 @@ DOCUMENT_TYPES = {
 }
 
 def main():
-    st.set_page_config(page_title="Pharma Document Generator", layout="wide")
     st.title("🏭 Pharmaceutical Document Generator")
     # System information
     col1, col2 = st.columns(2)
